@@ -1,1 +1,0 @@
-<template>This is a course</template>
