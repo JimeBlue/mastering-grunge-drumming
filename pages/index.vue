@@ -1,1 +1,1 @@
-<template>Hello, World!</template>
+<template><p class="text-pink-500">Hello, World!</p></template>

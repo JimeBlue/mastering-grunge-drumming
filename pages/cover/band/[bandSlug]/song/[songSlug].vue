@@ -1,9 +1,8 @@
 <template>
   <section>
-    <h1>Song</h1>
-    <p>This is the cover for:</p>
-    <p>{{ band.title }}</p>
-    <p>{{ song.title }}</p>
+    <p class="font-bold">Band: {{ band.title }}</p>
+    <h2 class="font-bold">Cover: {{ song.title }}</h2>
+    <p>{{ song.text }}</p>
   </section>
 </template>
 <script setup>

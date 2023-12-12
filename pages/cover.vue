@@ -1,5 +1,6 @@
 <template>
-  <div class="prose p-12 bg-red-100 rounded-md w-[65ch]">
-    I'm the cover page<NuxtPage />
-  </div>
+  <section>
+    <p class="font-bold">These are the covers:</p>
+    <NuxtPage />
+  </section>
 </template>
