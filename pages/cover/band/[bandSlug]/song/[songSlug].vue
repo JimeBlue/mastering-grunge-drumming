@@ -34,9 +34,7 @@ useHead({
 });
 
 // Functionality for checking song as complete
-const progress = useState('progress', () => {
-  return [];
-});
+const progress = useLocalStorage('progress', []);
 
 const isSongComplete = computed(() => {
   if (!progress.value[band.value.number - 1]) {
