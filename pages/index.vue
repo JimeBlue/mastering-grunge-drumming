@@ -6,6 +6,7 @@
       muted
       playsinline
       class="absolute top-0 left-0 w-full h-full object-cover"
+      poster="~/assets/img/poster.jpg"
     >
       <source src="~/assets/videos/hero.mp4" type="video/mp4" />
       <source src="~/assets/videos/hero.webm" type="video/webm" />
