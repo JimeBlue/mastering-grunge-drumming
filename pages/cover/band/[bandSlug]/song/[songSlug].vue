@@ -19,4 +19,13 @@ const band = computed(() => {
 const song = computed(() => {
   return band.value.songs.find((song) => song.slug === route.params.songSlug);
 });
+
+// Calculates title of the page
+const title = computed(() => {
+  return `${song.value.title} - ${band.value.title}`;
+});
+
+useHead({
+  title,
+});
 </script>
