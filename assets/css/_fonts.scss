@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''), url('~/assets/fonts/DMSans18pt-Light.woff2') format('woff2'),
+    url('~/assets/fonts/DMSans18pt-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('~/assets/fonts/DMSans18pt-Regular.woff2') format('woff2'),
+    url('~/assets/fonts/DMSans18pt-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''), url('~/assets/fonts/DMSans18pt-Medium.woff2') format('woff2'),
+    url('~/assets/fonts/DMSans18pt-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''), url('~/assets/fonts/DMSans18pt-Bold.woff2') format('woff2'),
+    url('~/assets/fonts/DMSans18pt-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+    url('~/assets/fonts/work-sans-v17-latin-600.woff2') format('woff2'),
+    url('~/assets/fonts/work-sans-v17-latin-600.woff') format('woff');
+}

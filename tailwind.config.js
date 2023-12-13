@@ -10,7 +10,11 @@ export default {
     './error.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['DMSans', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 };

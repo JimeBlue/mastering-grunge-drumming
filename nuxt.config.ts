@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: ['@vueuse/nuxt'],
   devtools: { enabled: true },
   alias: { '@': resolve(__dirname, '/') },
-  css: ['~/assets/main.scss'],
+  css: ['~/assets/css/main.scss'],
   postcss: {
     plugins: {
       tailwindcss: {},
