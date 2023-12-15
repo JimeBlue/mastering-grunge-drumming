@@ -13,6 +13,7 @@
       Your browser does not support the video tag.
     </video>
     <section class="absolute top-0 left-0 w-full h-full">
+      <SiteHeader />
       <hgroup
         class="w-full h-full container flex flex-col justify-around items-start text-white"
       >
