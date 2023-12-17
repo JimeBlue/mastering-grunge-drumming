@@ -28,19 +28,21 @@
               <span>{{ band.title }}</span>
               <span>{{ collapsedSlugs.includes(band.slug) ? '+' : '-' }}</span>
             </div>
-            <div
-              v-if="!collapsedSlugs.includes(band.slug)"
-              class="flex flex-col"
-            >
-              <NuxtLink
-                v-for="(song, index) in band.songs"
-                :key="song.slug"
-                :to="`/cover/band/${band.slug}/song/${song.slug}`"
-                @click="showOverlay = false"
+            <Transition>
+              <div
+                v-if="!collapsedSlugs.includes(band.slug)"
+                class="flex flex-col"
               >
-                <span>{{ song.title }}</span>
-              </NuxtLink>
-            </div>
+                <NuxtLink
+                  v-for="(song, index) in band.songs"
+                  :key="song.slug"
+                  :to="`/cover/band/${band.slug}/song/${song.slug}`"
+                  @click="showOverlay = false"
+                >
+                  <span>{{ song.title }}</span>
+                </NuxtLink>
+              </div>
+            </Transition>
           </ul>
         </div>
       </section>
@@ -100,5 +102,15 @@ const toggle = (slug) => {
     has been fixed.
   */
   opacity: 0.001;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
