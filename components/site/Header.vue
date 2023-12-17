@@ -1,52 +1,59 @@
 <template>
-  <header class="bg-white p-4">
-    <section class="flex justify-between items-center">
-      <p>Logo</p>
-      <button class="menu-button" @click="showOverlay = true">Menu</button>
-    </section>
-    <transition :duration="550" name="nested">
-      <section
-        v-if="showOverlay"
-        class="outer fixed inset-0 bg-black p-4 md:h-fit md:inset-x-0 md:top-0"
-        :class="{ 'z-50': showOverlay }"
-      >
-        <!-- Overlay's header-->
-        <div class="flex justify-between items-center">
-          <p class="text-white">Logo</p>
-          <button class="text-white" @click="showOverlay = false">Close</button>
-        </div>
-
-        <!-- Bands with Collapsibles in songs titles -->
-
-        <div class="px-10 inner">
-          <p class="text-white">Our Bands</p>
-          <ul v-for="band in bands" :key="band.slug" class="text-white">
-            <div
-              class="flex justify-between items-center cursor-pointer p-4 text-white"
-              @click="toggle(band.slug)"
-            >
-              <span>{{ band.title }}</span>
-              <span>{{ collapsedSlugs.includes(band.slug) ? '+' : '-' }}</span>
-            </div>
-            <Transition>
-              <div
-                v-if="!collapsedSlugs.includes(band.slug)"
-                class="flex flex-col"
-              >
-                <NuxtLink
-                  v-for="(song, index) in band.songs"
-                  :key="song.slug"
-                  :to="`/cover/band/${band.slug}/song/${song.slug}`"
-                  @click="showOverlay = false"
-                >
-                  <span>{{ song.title }}</span>
-                </NuxtLink>
-              </div>
-            </Transition>
-          </ul>
-        </div>
+  <header class="bg-white">
+    <div class="container">
+      <section class="flex justify-between items-center">
+        <p class="text-2xl">Logo</p>
+        <button class="text-2xl" @click="showOverlay = true">Menu</button>
       </section>
-    </transition>
+      <transition :duration="550" name="nested">
+        <section
+          v-if="showOverlay"
+          class="outer fixed inset-0 bg-black p-4 md:h-fit md:inset-x-0 md:top-0"
+          :class="{ 'z-50': showOverlay }"
+        >
+          <!-- Overlay's header-->
+          <div class="flex justify-between items-center container mb-16">
+            <p class="text-white text-2xl">Logo</p>
+            <button class="text-white text-2xl" @click="showOverlay = false">
+              Close
+            </button>
+          </div>
+          <!-- Bands with Collapsibles in songs titles -->
+          <div class="inner text-4xl container">
+            <ul v-for="band in bands" :key="band.slug" class="text-white">
+              <li
+                class="flex justify-between items-center cursor-pointer text-white py-10"
+                @click="toggle(band.slug)"
+              >
+                <span>{{ band.title }}</span>
+                <span>{{
+                  collapsedSlugs.includes(band.slug) ? '+' : '-'
+                }}</span>
+              </li>
+              <Transition>
+                <ul
+                  v-if="!collapsedSlugs.includes(band.slug)"
+                  class="flex flex-col"
+                >
+                  <li>
+                    <NuxtLink
+                      v-for="(song, index) in band.songs"
+                      :key="song.slug"
+                      :to="`/cover/band/${band.slug}/song/${song.slug}`"
+                      @click="showOverlay = false"
+                      class="block pl-8 my-6"
+                    >
+                      <p>{{ song.title }}</p>
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </Transition>
+              <hr class="border-white mt-6" />
+            </ul>
+          </div>
+        </section>
+      </transition>
+    </div>
   </header>
 </template>
 
