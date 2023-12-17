@@ -4,7 +4,7 @@
       <p>Logo</p>
       <button class="menu-button" @click="showOverlay = true">Menu</button>
     </section>
-    <transition>
+    <transition :duration="550" name="nested">
       <section
         v-if="showOverlay"
         class="outer fixed inset-0 bg-black p-4 md:h-fit md:inset-x-0 md:top-0"
@@ -18,7 +18,7 @@
 
         <!-- Bands with Collapsibles in songs titles -->
 
-        <div>
+        <div class="px-10 inner">
           <p class="text-white">Our Bands</p>
           <ul v-for="band in bands" :key="band.slug" class="text-white">
             <div
@@ -65,22 +65,40 @@ const toggle = (slug) => {
 };
 </script>
 <style scope>
-.v-enter-active,
-.v-leave-active {
+.nested-enter-active,
+.nested-leave-active {
   transition: all 0.3s ease-in-out;
 }
 
-.v-enter-from,
-.v-leave-to {
-  transform: translateX(50px);
+/* delay leave of parent element */
+.nested-leave-active {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateY(30px);
   opacity: 0;
 }
 
-@media (min-width: 768px) {
-  .v-enter-from,
-  .v-leave-to {
-    transform: translateY(50px);
-    opacity: 0;
-  }
+/* transition nested elements  */
+.nested-enter-active .inner,
+.nested-leave-active .inner {
+  transition: all 0.3s ease-in-out;
+}
+/* delay enter of nested element */
+.nested-enter-active .inner {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from .inner,
+.nested-leave-to .inner {
+  transform: translateX(30px);
+  /*
+  	Hack around a Chrome 96 bug in handling nested opacity transitions.
+    This is not needed in other browsers or Chrome 99+ where the bug
+    has been fixed.
+  */
+  opacity: 0.001;
 }
 </style>
