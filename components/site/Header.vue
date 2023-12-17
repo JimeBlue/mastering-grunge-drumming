@@ -8,7 +8,7 @@
       <transition :duration="550" name="nested">
         <section
           v-if="showOverlay"
-          class="outer fixed inset-0 bg-black p-4 md:h-fit md:inset-x-0 md:top-0"
+          class="outer fixed inset-0 bg-black p-4 overflow-y-auto"
           :class="{ 'z-50': showOverlay }"
         >
           <!-- Overlay's header-->
