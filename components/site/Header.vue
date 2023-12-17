@@ -2,20 +2,13 @@
   <header class="bg-white p-4">
     <section class="flex justify-between items-center">
       <p>Logo</p>
-      <button
-        class="menu-button"
-        @click="showOverlay = true"
-        @mouseover="handleMouseOver"
-      >
-        Menu
-      </button>
+      <button class="menu-button" @click="showOverlay = true">Menu</button>
     </section>
 
     <section
       v-if="showOverlay"
       class="fixed inset-0 bg-black p-4 md:h-fit md:inset-x-0 md:top-0"
       :class="{ 'z-50': showOverlay }"
-      @mouseleave="handleMouseLeave"
     >
       <!-- Overlay's header-->
       <div class="flex justify-between items-center">
@@ -63,20 +56,6 @@ const toggle = (slug) => {
     collapsedSlugs.value.splice(index, 1);
   } else {
     collapsedSlugs.value.push(slug);
-  }
-};
-
-// Mouseover event handler
-const handleMouseOver = () => {
-  if (window.innerWidth >= 768) {
-    showOverlay.value = true;
-  }
-};
-
-// Mouseleave event handler
-const handleMouseLeave = () => {
-  if (window.innerWidth >= 768) {
-    showOverlay.value = false;
   }
 };
 </script>
