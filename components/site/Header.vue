@@ -1,9 +1,16 @@
 <template>
   <header class="bg-white">
     <div class="container">
-      <section class="flex justify-between items-center">
-        <p class="text-2xl">Logo</p>
-        <button class="text-2xl" @click="showOverlay = true">Menu</button>
+      <section class="flex justify-between items-center py-2">
+        <hgroup class="flex items-center space-x-1">
+          <IconsDrummer class="w-10 h-10" />
+          <h1 class="flex flex-col text-xs">
+            <span>Mastering</span> <span>Drumming</span>
+          </h1>
+        </hgroup>
+        <button class="text-2xl" @click="showOverlay = true">
+          <IconsMenu class="text-black-500 h-6 w-6" />
+        </button>
       </section>
       <transition :duration="550" name="nested">
         <section
@@ -12,14 +19,19 @@
           :class="{ 'z-50': showOverlay }"
         >
           <!-- Overlay's header-->
-          <div class="flex justify-between items-center container mb-16">
-            <p class="text-white text-2xl">Logo</p>
+          <div class="flex justify-between items-center container">
+            <hgroup class="flex items-center space-x-1 text-white">
+              <IconsDrummer class="w-10 h-10" />
+              <h1 class="flex flex-col text-xs">
+                <span>Mastering</span> <span>Drumming</span>
+              </h1>
+            </hgroup>
             <button class="text-white text-2xl" @click="showOverlay = false">
-              Close
+              <IconsSticks class="w-6 h-6 text-whie" />
             </button>
           </div>
           <!-- Bands with Collapsibles in songs titles -->
-          <div class="inner text-4xl container">
+          <div class="inner text-4xl container mt-16">
             <ul v-for="band in bands" :key="band.slug" class="text-white">
               <li
                 class="flex justify-between items-center cursor-pointer text-white py-10"
