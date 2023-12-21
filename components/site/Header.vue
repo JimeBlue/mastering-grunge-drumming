@@ -8,7 +8,7 @@
             <span>Mastering</span> <span>Drumming</span>
           </h1>
         </hgroup>
-        <button class="text-2xl" @click="showOverlay = true">
+        <button class="text-2xl" @click="toggleOverlay(true)">
           <IconsMenu class="text-black-500 h-6 w-6 text-white/80" />
         </button>
       </section>
@@ -26,43 +26,32 @@
                 <span>Mastering</span> <span>Drumming</span>
               </h1>
             </hgroup>
-            <button class="text-white/80 text-2xl" @click="showOverlay = false">
+            <button
+              class="text-white/80 text-2xl"
+              @click="toggleOverlay(false)"
+            >
               <IconsSticks class="w-6 h-6 text-whie" />
             </button>
           </div>
-          <!-- Bands with Collapsibles in songs titles -->
-          <div class="inner text-4xl container mt-16">
-            <ul v-for="band in bands" :key="band.slug" class="text-white">
-              <li
-                class="flex justify-between items-center cursor-pointer text-white py-10"
-                @click="toggle(band.slug)"
-              >
-                <span>{{ band.title }}</span>
-                <span>{{
-                  collapsedSlugs.includes(band.slug) ? '+' : '-'
-                }}</span>
-              </li>
-              <Transition>
-                <ul
-                  v-if="!collapsedSlugs.includes(band.slug)"
-                  class="flex flex-col"
-                >
-                  <li>
-                    <NuxtLink
-                      v-for="(song, index) in band.songs"
-                      :key="song.slug"
-                      :to="`/cover/band/${band.slug}/song/${song.slug}`"
-                      @click="showOverlay = false"
-                      class="block pl-8 my-6"
-                    >
-                      <p>{{ song.title }}</p>
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </Transition>
-              <hr class="border-white mt-6" />
-            </ul>
-          </div>
+          <!-- Accordion for each band: -->
+          <UAccordion
+            open-icon="i-heroicons-plus"
+            close-icon="i-heroicons-minus"
+            :items="bandAccordionItems"
+          >
+            <template v-for="band in bandAccordionItems" #[band.slot]>
+              <!-- content of the slot -->
+              <ul>
+                <li v-for="song in band.songs" :key="band.slug">
+                  <NuxtLink
+                    :to="`/cover/band/${band.slug}/song/${song.slug}`"
+                    @click="toggleOverlay(false)"
+                    >{{ song.title }}</NuxtLink
+                  >
+                </li>
+              </ul>
+            </template>
+          </UAccordion>
         </section>
       </transition>
     </div>
@@ -72,18 +61,25 @@
 <script setup>
 const { bands } = useCover();
 
+// Open/close overlay
 const showOverlay = ref(false);
-
-// Functionality for collapsibles
-const collapsedSlugs = ref([]);
-const toggle = (slug) => {
-  const index = collapsedSlugs.value.indexOf(slug);
-  if (index > -1) {
-    collapsedSlugs.value.splice(index, 1);
+const toggleOverlay = (state = null) => {
+  if (state === null) {
+    showOverlay.value = !showOverlay.value;
   } else {
-    collapsedSlugs.value.push(slug);
+    showOverlay.value = state;
   }
 };
+
+// Creates bandAccordionItems array from bands array
+const bandAccordionItems = bands.map((band) => ({
+  label: band.title,
+  icon: 'i-heroicons-information-circle',
+  content: `Information about ${band.title}`,
+  slug: band.slug,
+  slot: band.slug,
+  songs: band.songs,
+}));
 </script>
 <style scope>
 .nested-enter-active,
