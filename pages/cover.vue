@@ -42,13 +42,13 @@
                     <h4
                       :class="[
                         'text-lg transition-all ease-in-out',
-                        hoveredSong === song.slug ? 'text-contrast' : '',
+                        hoveredSong === song.slug ? 'text-brightYellow' : '',
                       ]"
                     >
                       {{ song.title }}
                     </h4>
-                    <NuxtImg
-                      src="/images/sticks.png"
+                    <IconsStick
+                      class="w-10 h-10 text-brightYellow"
                       :class="[
                         'w-16',
                         hoveredSong === song.slug ? 'animate-pulse' : '',
