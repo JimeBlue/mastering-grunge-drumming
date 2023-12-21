@@ -1,7 +1,8 @@
 <template>
   <div class="bg-mineGray">
     <SiteHeader />
-    <div class="container">
+
+    <div class="container" v-if="$route.name === 'cover'">
       <section class="py-16 space-y-10">
         <hgroup class="text-center space-y-4">
           <h2 class="text-4xl tracking-wider uppercase text-primary-400">
