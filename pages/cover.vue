@@ -25,17 +25,20 @@
                 class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-500 bg-gray-800 text-white p-6 group-hover:opacity-100"
               >
                 <h3 class="uppercase text-xl mb-4">{{ band.title }}</h3>
-                <div class="flex flex-col space-y-3">
+                <div class="flex flex-col">
                   <NuxtLink
                     v-for="(song, index) in band.songs"
                     :key="song.slug"
                     :to="`/cover/band/${band.slug}/song/${song.slug}`"
-                    class="flex items-center space-x-4"
+                    class="flex items-center space-x-4 py-4 border-b border-slate-600"
                     @mouseenter="hoveredSong = song.slug"
                     @mouseleave="hoveredSong = null"
                   >
                     <h4
-                      class="text-lg hover:text-contrast transition-all ease-in-out"
+                      :class="[
+                        'text-lg transition-all ease-in-out',
+                        hoveredSong === song.slug ? 'text-contrast' : '',
+                      ]"
                     >
                       {{ song.title }}
                     </h4>
