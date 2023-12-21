@@ -1,15 +1,15 @@
 <template>
-  <header class="bg-white">
+  <header class="bg-black">
     <div class="container">
       <section class="flex justify-between items-center py-2">
-        <hgroup class="flex items-center space-x-1">
+        <hgroup class="flex items-center space-x-1 text-primary-400">
           <IconsDrummer class="w-10 h-10" />
           <h1 class="flex flex-col text-xs">
             <span>Mastering</span> <span>Drumming</span>
           </h1>
         </hgroup>
         <button class="text-2xl" @click="showOverlay = true">
-          <IconsMenu class="text-black-500 h-6 w-6" />
+          <IconsMenu class="text-black-500 h-6 w-6 text-white/80" />
         </button>
       </section>
       <transition :duration="550" name="nested">
@@ -20,13 +20,13 @@
         >
           <!-- Overlay's header-->
           <div class="flex justify-between items-center container">
-            <hgroup class="flex items-center space-x-1 text-white">
+            <hgroup class="flex items-center space-x-1 text-primary-400">
               <IconsDrummer class="w-10 h-10" />
               <h1 class="flex flex-col text-xs">
                 <span>Mastering</span> <span>Drumming</span>
               </h1>
             </hgroup>
-            <button class="text-white text-2xl" @click="showOverlay = false">
+            <button class="text-white/80 text-2xl" @click="showOverlay = false">
               <IconsSticks class="w-6 h-6 text-whie" />
             </button>
           </div>

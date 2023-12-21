@@ -22,7 +22,7 @@
             <li class="relative group">
               <header class="header">
                 <NuxtImg
-                  :src="`/images/${band.image}.png`"
+                  :src="`/images/${band.image}.jpeg`"
                   :alt="`image of the band ${band.title}`"
                   class="w-full aspect-square text-white"
                 />
