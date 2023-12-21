@@ -4,7 +4,7 @@
     <div class="container">
       <section class="py-16 space-y-10">
         <hgroup class="text-center space-y-4">
-          <h2 class="text-4xl tracking-wider uppercase text-brightYellow">
+          <h2 class="text-4xl tracking-wider uppercase text-primary-400">
             bands and covers
           </h2>
           <p class="text-white text-lg">
@@ -42,13 +42,13 @@
                     <h4
                       :class="[
                         'text-lg transition-all ease-in-out',
-                        hoveredSong === song.slug ? 'text-brightYellow' : '',
+                        hoveredSong === song.slug ? 'text-primary-400' : '',
                       ]"
                     >
                       {{ song.title }}
                     </h4>
                     <IconsStick
-                      class="w-10 h-10 text-brightYellow"
+                      class="w-10 h-10 text-primary-400"
                       :class="[
                         'w-16',
                         hoveredSong === song.slug ? 'animate-pulse' : '',

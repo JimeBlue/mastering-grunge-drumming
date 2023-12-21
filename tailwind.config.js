@@ -15,8 +15,20 @@ export default {
         sans: ['DMSans', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
       colors: {
-        brightYellow: '#f8b822',
-        contrast: '#2e58ff',
+        // primary color yellow 400. Defined in app.config.js since the NUXT UI is being used
+        yellow: {
+          50: '#fefce8',
+          100: '#fef9c3',
+          200: '#fef08a',
+          300: '#fde047',
+          400: '#f8b822',
+          500: '#eab308',
+          600: '#ca8a04',
+          700: '#a16207',
+          800: '#854d0e',
+          900: '#713f12',
+          950: '#5c3411',
+        },
         mineGray: '#222222',
       },
     },
