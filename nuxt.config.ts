@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { resolve } from 'path';
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt', '@nuxt/image'],
+  modules: ['@vueuse/nuxt', '@nuxt/image', '@nuxt/ui'],
   devtools: { enabled: true },
   alias: { '@': resolve(__dirname, '/') },
   css: ['~/assets/css/main.scss'],

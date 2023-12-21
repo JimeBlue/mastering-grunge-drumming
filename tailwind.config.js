@@ -14,6 +14,10 @@ export default {
       fontFamily: {
         sans: ['DMSans', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
+      colors: {
+        contrast: '#2e58ff',
+        mineGray: '#222222',
+      },
     },
   },
   plugins: [
