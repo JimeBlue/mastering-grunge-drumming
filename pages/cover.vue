@@ -2,14 +2,19 @@
   <div class="bg-mineGray">
     <SiteHeader />
     <div class="container">
-      <section>
-        <h2>Our bands and covers</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-          quos! Ea reiciendis, similique consequatur facilis eaque natus.
-          Suscipit nam fugiat earum labore nisi iure velit sequi recusandae
-          ipsum, necessitatibus facilis.
-        </p>
+      <section class="py-16 space-y-10">
+        <hgroup class="text-center space-y-4">
+          <h2 class="text-4xl tracking-wider uppercase text-brightYellow">
+            bands and covers
+          </h2>
+          <p class="text-white text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
+            quos! Ea reiciendis, similique consequatur facilis eaque natus.
+            Suscipit nam fugiat earum labore nisi iure velit sequi recusandae
+            ipsum, necessitatibus facilis.
+          </p>
+        </hgroup>
+
         <div
           class="grid auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >

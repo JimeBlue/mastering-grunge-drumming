@@ -15,6 +15,7 @@ export default {
         sans: ['DMSans', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
       colors: {
+        brightYellow: '#f8b822',
         contrast: '#2e58ff',
         mineGray: '#222222',
       },
