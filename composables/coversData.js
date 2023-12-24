@@ -6,6 +6,8 @@ export default {
       slug: 'foo-fighters',
       number: 1,
       image: 'foo-fighters',
+      logo: 'foo-fighters-logo.png',
+      logo_classes: 'h-12',
       songs: [
         {
           title: 'The Pretender',
@@ -38,6 +40,8 @@ export default {
       slug: 'nirvana',
       number: 2,
       image: 'nirvana',
+      logo: 'nirvana-logo.png',
+      logo_classes: 'w-fit h-8 object-contain',
       songs: [
         {
           title: 'Breed',
@@ -78,6 +82,8 @@ export default {
       slug: 'stone-temple-pilots',
       number: 3,
       image: 'stone-temple-pilots',
+      logo: 'stp-logo.png',
+      logo_classes: 'w-fit h-10 object-contain',
       songs: [
         {
           title: 'Interstate Love Song',
@@ -118,6 +124,8 @@ export default {
       slug: 'soundgarden',
       number: 4,
       image: 'soundgarden',
+      logo: 'soundgarden-logo.png',
+      logo_classes: 'w-fit h-24 object-contain',
       songs: [
         {
           title: 'Black Hole Sun',
@@ -150,6 +158,8 @@ export default {
       slug: 'pearl-jam',
       number: 5,
       image: 'pearl-jam',
+      logo: 'pearl-jam-logo.png',
+      logo_classes: 'w-fit h-12 object-contain',
       songs: [
         {
           title: 'Alive',
@@ -174,6 +184,8 @@ export default {
       slug: 'alice-in-chains',
       number: 6,
       image: 'alice-in-chains',
+      logo: 'alice-in-chains-logo.png',
+      logo_classes: 'w-fit h-10 object-contain',
       songs: [
         {
           title: 'Them Bones',

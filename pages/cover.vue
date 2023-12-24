@@ -31,31 +31,28 @@
               <article
                 class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-500 bg-gray-800 text-white p-6 group-hover:opacity-100"
               >
-                <h3 class="uppercase text-xl mb-4">{{ band.title }}</h3>
+                <NuxtImg
+                  :src="`/images/${band.logo}`"
+                  :alt="`logo of ${band.title}`"
+                  :class="band.logo_classes"
+                />
                 <div class="flex flex-col">
                   <NuxtLink
                     v-for="(song, index) in band.songs"
                     :key="song.slug"
                     :to="`/cover/band/${band.slug}/song/${song.slug}`"
-                    class="flex items-center space-x-4 py-4 border-b border-slate-600"
+                    class="flex items-center space-x-4 py-4"
                     @mouseenter="hoveredSong = song.slug"
                     @mouseleave="hoveredSong = null"
                   >
                     <h4
                       :class="[
-                        'text-lg transition-all ease-in-out',
-                        hoveredSong === song.slug ? 'text-primary-400' : '',
+                        'text-lg uppercase text-primary-400 hover-underline-animation',
+                        hoveredSong === song.slug ? '' : '',
                       ]"
                     >
                       {{ song.title }}
                     </h4>
-                    <IconsStick
-                      class="w-10 h-10 text-primary-400"
-                      :class="[
-                        'w-16',
-                        hoveredSong === song.slug ? 'animate-pulse' : '',
-                      ]"
-                    />
                   </NuxtLink>
                 </div>
               </article>
@@ -72,3 +69,25 @@ const { bands } = useCover();
 
 const hoveredSong = ref(null);
 </script>
+<style scoped>
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background-color: #f8b822;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+</style>
