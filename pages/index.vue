@@ -21,7 +21,7 @@
           Mastering Grunge Drumming
         </h1>
         <NuxtLink to="/cover"
-          ><button class="hidden md:block text-white">
+          ><button class="btn btn-primary-animated px-6 py-4">
             Our Covers
           </button></NuxtLink
         >

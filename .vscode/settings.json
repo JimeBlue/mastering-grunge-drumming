@@ -4,6 +4,9 @@
     "**/.nuxt": true
     // any other folders you want to exclude
   },
+
+  "emmet.triggerExpansionOnTab": true,
+
   "search.exclude": {
     "**/node_modules": true,
     "**/.nuxt": true

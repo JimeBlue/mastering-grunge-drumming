@@ -1,0 +1,23 @@
+@layer components {
+  .btn {
+    @apply text-base leading-none w-auto max-w-full flex items-center py-4 px-6 rounded-none border border-transparent transition-all;
+  }
+
+  .btn-primary-animated {
+    /* Gradient background */
+    @apply border-white text-white bg-gradient-to-l;
+    background: linear-gradient(to left, transparent, transparent);
+
+    /* Box shadow and transition */
+    box-shadow: inset 0 0 0 0 transparent;
+    transition: all linear 0.4s;
+
+    /* Hover effect */
+    &:hover {
+      box-shadow: inset 150px 0 0 0 #f8b822;
+      @apply border-primary-400 text-black
+    }
+  }
+
+  
+}
