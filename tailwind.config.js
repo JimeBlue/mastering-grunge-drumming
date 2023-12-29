@@ -11,6 +11,7 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {'xs': '425px',},
       fontFamily: {
         sans: ['DMSans', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },

@@ -1,7 +1,6 @@
 <template>
   <iframe
-    width="560"
-    height="315"
+    class="w-full h-full xs:h-[300px] sm:h-[500px] lg:h-[800px]"
     :src="`https://www.youtube.com/embed/${props.videoId}`"
     title="YouTube video player"
     frameborder="0"
