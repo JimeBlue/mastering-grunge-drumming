@@ -1,13 +1,25 @@
 <template>
-  <section>
-    <p class="font-bold">Band: {{ band.title }}</p>
-    <h2 class="font-bold">Cover: {{ song.title }}</h2>
+  <section class="container py-6 bg-mineGray text-gray-100">
+    <NuxtLink  to="/cover">
+      <hgroup class="mb-6 space-y-2">
+        <NuxtImg
+        :src="`/images/${band.logo}`"
+        :alt="`logo of ${band.title}`"
+        :class="band.logo_classes"
+        />
+        <h2 class="flex items-center space-x-1"> <IconsArrow class="w-6 h-6 text-primary-400" /><span class="font-bold text-xl md:text-3xl hover:text-primary-400 transition-colors">{{ song.title }}</span></h2>
+      </hgroup>
+    </NuxtLink>
     <VideoPlayer v-if="song.videoId" :videoId="song.videoId" />
-    <p>{{ song.text }}</p>
-    <SongCompleteButton
-      :model-value="isSongComplete"
-      @update:model-value="toggleComplete"
-    />
+  
+    <article class="mt-6 space-y-10">
+      <p>{{ song.text }}</p>
+      <SongCompleteButton
+        :model-value="isSongComplete"
+        @update:model-value="toggleComplete"
+        class="block"
+      />
+    </article>
   </section>
 </template>
 <script setup>
