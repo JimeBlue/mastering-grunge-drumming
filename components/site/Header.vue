@@ -3,16 +3,15 @@
     <div class="container">
       <section class="flex justify-between items-center py-2">
         <!-- logo -->
-        <hgroup class="flex items-center space-x-1 text-primary-400">
           <NuxtLink to="/" >
-            <IconsDrummer class="w-10 h-10" />
-            <h1 class="flex flex-col text-xs">
-              <span>Mastering</span> <span>Drumming</span>
-            </h1>
+            <NuxtImg
+                  src="/images/logo-white.png"
+                  alt="mastering drumming"
+                  class="w-28 h-16 object-contain"
+                />
           </NuxtLink>
-        </hgroup>
         <button class="text-2xl" @click="toggleOverlay(true)">
-          <IconsMenu class="text-black-500 h-6 w-6 text-white/80" />
+          <IconsMenu class="h-8 w-8 text-white" />
         </button>
       </section>
       <transition :duration="550" name="nested">
@@ -24,18 +23,18 @@
           <!-- Overlay's header-->
           <div class="bg-black">
             <header class="flex justify-between items-center container p-4">
-              <hgroup class="flex items-center space-x-1 text-primary-400">
-                  <IconsDrummer class="w-10 h-10" />
-                  <h1 class="flex flex-col text-xs">
-                    <span>Mastering</span> <span>Drumming</span>
-                  </h1>
-            
-              </hgroup>
+              <NuxtLink to="/" >
+                 <NuxtImg
+                src="/images/logo-white.png"
+                alt="mastering drumming"
+                class="w-32 h-16 object-contain"
+                 />
+              </NuxtLink>
               <button
                 class="text-white/80 text-2xl"
                 @click="toggleOverlay(false)"
               >
-                <IconsSticks class="w-6 h-6 text-whie" />
+                <IconsSticks class="w-8 h-8 text-whie" />
               </button>
             </header>
           </div>
