@@ -2,11 +2,14 @@
   <header class="bg-black">
     <div class="container">
       <section class="flex justify-between items-center py-2">
+        <!-- logo -->
         <hgroup class="flex items-center space-x-1 text-primary-400">
-          <IconsDrummer class="w-10 h-10" />
-          <h1 class="flex flex-col text-xs">
-            <span>Mastering</span> <span>Drumming</span>
-          </h1>
+          <NuxtLink to="/" >
+            <IconsDrummer class="w-10 h-10" />
+            <h1 class="flex flex-col text-xs">
+              <span>Mastering</span> <span>Drumming</span>
+            </h1>
+          </NuxtLink>
         </hgroup>
         <button class="text-2xl" @click="toggleOverlay(true)">
           <IconsMenu class="text-black-500 h-6 w-6 text-white/80" />
@@ -15,37 +18,56 @@
       <transition :duration="550" name="nested">
         <section
           v-if="showOverlay"
-          class="outer fixed inset-0 bg-black p-4 overflow-y-auto"
+          class="outer fixed inset-0 bg-mineGray overflow-y-auto"
           :class="{ 'z-50': showOverlay }"
         >
           <!-- Overlay's header-->
-          <div class="flex justify-between items-center container">
-            <hgroup class="flex items-center space-x-1 text-primary-400">
-              <IconsDrummer class="w-10 h-10" />
-              <h1 class="flex flex-col text-xs">
-                <span>Mastering</span> <span>Drumming</span>
-              </h1>
-            </hgroup>
-            <button
-              class="text-white/80 text-2xl"
-              @click="toggleOverlay(false)"
-            >
-              <IconsSticks class="w-6 h-6 text-whie" />
-            </button>
+          <div class="bg-black">
+            <header class="flex justify-between items-center container p-4">
+              <hgroup class="flex items-center space-x-1 text-primary-400">
+                  <IconsDrummer class="w-10 h-10" />
+                  <h1 class="flex flex-col text-xs">
+                    <span>Mastering</span> <span>Drumming</span>
+                  </h1>
+            
+              </hgroup>
+              <button
+                class="text-white/80 text-2xl"
+                @click="toggleOverlay(false)"
+              >
+                <IconsSticks class="w-6 h-6 text-whie" />
+              </button>
+            </header>
           </div>
           <!-- Accordion for each band: -->
           <UAccordion
             open-icon="i-heroicons-plus"
             close-icon="i-heroicons-minus"
             :items="bandAccordionItems"
+            class="container"
           >
+          <template #default="{ item, index, open }">
+            <UButton color="gray" variant="ghost" class="border-b border-gray-100 bg-transpatent hover:bg-transparent text-gray-100 hover:text-primary-400" :ui="{ rounded: 'rounded-none', padding: { sm: 'py-6 px-0' } }">
+              
+              <span class="truncate uppercase" :class="open ? 'text-primary-400' : ''">{{ item.label }}</span>
+              <template #trailing>
+                <UIcon
+                 name="i-heroicons-chevron-right-20-solid"
+                 class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                 :class="[open && 'rotate-90']"
+          />
+              </template>
+            </UButton>
+          </template>
+          
             <template v-for="band in bandAccordionItems" #[band.slot]>
               <!-- content of the slot -->
-              <ul>
+              <ul class="space-y-4">
                 <li v-for="song in band.songs" :key="band.slug">
                   <NuxtLink
                     :to="`/cover/band/${band.slug}/song/${song.slug}`"
                     @click="toggleOverlay(false)"
+                    class="text-gray-100 hover:text-primary-500 text-base pl-4 uppercase"
                     >{{ song.title }}</NuxtLink
                   >
                 </li>
